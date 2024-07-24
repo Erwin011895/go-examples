@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+package pb;
+
+service UserService {
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc GetUser (GetUserRequest) returns (User) {}
+    rpc NotifAllUser (NotifAllUserRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+  
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+// message GetUserResponse
+message User {
+  string id = 1;
+  string name = 2;
+}
+
+message NotifAllUserRequest {
+  string notif_message = 1;
+}
